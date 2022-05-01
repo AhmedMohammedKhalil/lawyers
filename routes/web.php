@@ -42,6 +42,14 @@ Route::middleware(['auth:admin'])->name('admin.')->prefix('admin')->group(functi
 
 Route::middleware(['auth:lawyer'])->name('lawyer.')->prefix('lawyer')->group(function () {
     Route::get('/profile', 'LawyerController@profile')->name('profile');
+    Route::get('/consulations', 'LawyerController@showConsulations')->name('consulations');
+    Route::get('/consulations/show', 'LawyerController@getConsulation')->name('consulations.show');
+    Route::get('/booking/show', 'LawyerController@showBooking')->name('bookings.show');
+    Route::get('/booking/accept', 'LawyerController@acceptBooking')->name('bookings.accept');
+    Route::get('/booking/reject', 'LawyerController@rejectBooking')->name('bookings.reject');
+
+
+
     Route::get('/settings', 'Auth\SettingsController@lawyerSettings')->name('settings');
     Route::get('/logout', 'Auth\LoginController@lawyerLogout')->name('logout');
 
@@ -54,7 +62,13 @@ Route::middleware(['auth:lawyer'])->name('lawyer.')->prefix('lawyer')->group(fun
 });
 Route::middleware(['auth:user'])->name('user.')->prefix('user')->group(function () {
     Route::get('/profile', 'UserController@profile')->name('profile');
-    Route::get('/booking', 'UserController@booking')->name('booking');
+    Route::get('/consulations', 'UserController@showConsulations')->name('consulations');
+    Route::get('/consulations/show', 'UserController@getConsulation')->name('consulations.show');
+    Route::get('/consulations/add', 'UserController@addConsulation')->name('consulations.add');
+
+    Route::get('/bookings/add', 'UserController@addBooking')->name('bookings.add');
+    Route::get('/bookings/show', 'UserController@showBooking')->name('bookings.show');
+
     Route::get('/settings', 'Auth\SettingsController@userSettings')->name('settings');
     Route::get('/logout', 'Auth\LoginController@userLogout')->name('logout');
 });

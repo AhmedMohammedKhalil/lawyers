@@ -12,4 +12,15 @@ class Booking extends Model
     protected $fillable = [
         'status', 'book_at', 'user_id','lawyer_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function lawyer()
+    {
+        return $this->belongsTo(Lawyer::class, 'lawyer_id');
+    }
+
 }

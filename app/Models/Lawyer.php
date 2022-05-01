@@ -65,4 +65,18 @@ class Lawyer extends Authenticatable
     }
 
 
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
+
+    public function unreadNotification() {
+        return $this->notifications()->whereNull('read_at');
+    }
+
+    public function latestNotification() {
+        return $this->notifications()->latest();
+    }
+
+
 }

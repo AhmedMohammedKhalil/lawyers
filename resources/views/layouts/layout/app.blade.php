@@ -58,10 +58,16 @@
             text-align: justify
         }
 
+        .dropdown-menu.show {
+            left: unset !important;
+            right: 0 !important;
+            transform: translate(0px, 42px) !important;
 
-
-
-
+        }
+        .dropdown-menu-arrow:before , .dropdown-menu-arrow:after {
+            left: unset !important;
+            right: 12px !important;
+        }
     </style>
     @stack('css')
 </head>
@@ -79,6 +85,7 @@
 
     <!-- Back to top -->
     <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
     <!-- JQuery js-->
     <script src="{{asset('assets/js/jquery.min.js')}}"></script>
@@ -136,6 +143,7 @@
     <!-- Custom js-->
     <script src="{{asset('assets/js/custom.js')}}"></script>
     @livewireScripts()
+    <script src="{{ mix('js/app.js') }}" ></script>
     @stack('js')
 
 </body>

@@ -23,11 +23,6 @@ class User extends Authenticatable
         'password',
     ];
 
-    public function replies()
-    {
-        return $this->morphMany(Reply::class, 'reply');
-    }
-
     public function consulations()
     {
         return $this->hasMany(Consulation::class, 'user_id');
@@ -51,4 +46,27 @@ class User extends Authenticatable
         ->withPivot('status', 'book_at')
         ->withTimestamps();
     }
+
+
+    public function replies()
+    {
+        return $this->morphMany(Reply::class, 'reply');
+    }
+
+
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
+
+    public function unreadNotification() {
+        return $this->notifications()->whereNull('read_at');
+    }
+
+    public function latestNotification() {
+        return $this->notifications()->latest();
+    }
+
+
+
 }

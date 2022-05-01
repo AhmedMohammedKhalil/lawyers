@@ -24,7 +24,7 @@ class Search extends Component
                 foreach($specs as $spec) {
                     foreach($spec->lawyers as $l) {
                         if ($lawyers->count() == 0) {
-                            $lawyers[] = $l->toJson();
+                            $lawyers[] = $l;
                         } else {
                             if (!in_array($l, $lawyers->toArray())) {
                                 $lawyers[] = $l;
@@ -35,7 +35,7 @@ class Search extends Component
                 $this->lawyers = $lawyers;
 
         }
-        $this->emit('showLawyers',$this->lawyers);
+        $this->emitTo(Lawyers::class,'showLawyers',$this->lawyers);
     }
     public function render()
     {

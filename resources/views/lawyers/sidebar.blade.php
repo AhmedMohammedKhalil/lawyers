@@ -45,6 +45,16 @@
                             class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">الخدمات</span></a>
                 </li>
                 <li>
+                    <a class="side-menu__item @if(Request::is('*consulations*')) active @endif"
+                        href="{{route('lawyer.consulations')}}"><i class="side-menu__icon fe fe-user"></i><span
+                            class="side-menu__label">الإستشارات</span></a>
+                </li>
+                <li>
+                    <a class="side-menu__item @if(Request::is('*bookings*')) active @endif"
+                        href="{{route('lawyer.bookings.show')}}"><i class="side-menu__icon fe fe-user"></i><span
+                            class="side-menu__label">حجز المواعيد</span></a>
+                </li>
+                <li>
                     <a class="side-menu__item @if(Request::is('*settings*')) active @endif"
                         href="{{route('lawyer.settings')}}"><i class="side-menu__icon fe fe-settings"></i><span
                             class="side-menu__label">الإعدادات</span></a>

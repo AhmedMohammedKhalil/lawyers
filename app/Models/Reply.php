@@ -18,4 +18,12 @@ class Reply extends Model
         return $this->morphTo();
     }
 
+    public function lawyer() {
+        return $this->belongsTo(Lawyer::class,'reply_id');
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class,'reply_id');
+    }
+
 }

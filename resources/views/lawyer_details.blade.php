@@ -47,11 +47,11 @@
                                             <h3>{{$lawyer->gender}}</h3>
                                             <p class="text-default mb-3">{{nl2br($lawyer->address)}}</p>
                                         </div>
-                                            @livewire('user.rate' , ["lawyer"=>$lawyer])
+                                        @livewire('user.rate' , ["lawyer_id"=>$lawyer->id])
                                         @auth('user')
                                             <div class="btn-list">
-                                                <a href="{{ route('user.booking',['id'=>$lawyer->id]) }}" class="btn btn-primary btn-md mb-5 mb-lg-0">حجز ميعاد</a>
-                                                <a href="javascript:void(0)" class="btn btn-primary btn-md mb-5 mb-lg-0">طلب استشارة</a>
+                                                <a href="{{ route('user.bookings.add',['id'=>$lawyer->id]) }}" class="btn btn-primary btn-md mb-5 mb-lg-0">حجز ميعاد</a>
+                                                <a href="{{ route('user.consulations.add',['id'=>$lawyer->id]) }}" class="btn btn-primary btn-md mb-5 mb-lg-0">طلب استشارة</a>
                                             </div>
                                         @endauth
                                     </div>
@@ -102,6 +102,6 @@
                 @endif
             </div>
         </div>
-    </section>
+</section>
 
 @endsection

@@ -15,8 +15,6 @@ return new class extends Migration
     {
         Schema::create('consulations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('status');
             $table->text('details');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')

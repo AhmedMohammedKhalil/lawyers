@@ -10,7 +10,7 @@ class Consulation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'details', 'status', 'user_id', 'spec_id','lawyer_id'
+        'details', 'user_id', 'spec_id','lawyer_id'
     ];
 
     public function specialization()
@@ -28,13 +28,11 @@ class Consulation extends Model
         return $this->belongsTo(Lawyer::class, 'lawyer_id');
     }
 
-    public function user_reply()
+    public function replies()
     {
-        return $this->morphedByMany(User::class, 'reply','replies','cons_id','reply_id');
+        return $this->hasMany(Reply::class,'cons_id');
     }
 
-    public function lawyer_reply()
-    {
-        return $this->morphedByMany(Lawyer::class, 'reply', 'replies', 'cons_id', 'reply_id');
-    }
+
+
 }

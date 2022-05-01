@@ -8,19 +8,30 @@ use Livewire\Component;
 class Lawyers extends Component
 {
     public $lawyers;
+    public $flag = false;
 
-    protected $listeners = ['showLawyers'];
+    protected $listeners = [
+        'showLawyers',
+    ];
+
 
     public function showLawyers($ls) {
-        $ids = [];
-        foreach($ls as $l) {
-            $ids[] = $l['id'];
+        $this->flag = true;
+        if($ls) {
+            $ids = [];
+            foreach($ls as $l) {
+                $ids[] = $l['id'];
+            }
+            $this->lawyers = Lawyer::find($ids);
+        } else {
+            $this->lawyers = '';
         }
-        $this->lawyers = Lawyer::find($ids);
+
     }
 
     public function render()
     {
+        $this->lawyers = $this->flag == true ? $this->lawyers : Lawyer::all();
         return view('livewire.lawyers');
     }
 }

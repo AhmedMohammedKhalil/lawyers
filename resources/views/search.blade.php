@@ -14,6 +14,19 @@
         </div>
     </section>
     <section>
-        @livewire('lawyers')
+        <section>
+            <hr>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="wideget-user ">
+                                @livewire('lawyers')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
     </section>
 @endsection

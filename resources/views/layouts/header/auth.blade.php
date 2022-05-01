@@ -22,10 +22,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="top-bar-end">
-                    <ul class="custom">
-
-
+                <div class="top-bar-end" style="float: unset">
+                    <ul class="custom" style="flex-direction: row-reverse">
+                        @if(auth('user')->check() || auth('lawyer')->check())
+                            @livewire('notification')
+                        @endif
                         <li class="dropdown">
                             <a href="javascript:void(0)" class="text-dark" data-bs-toggle="dropdown"><i
                                     class="fe fe-home me-1"></i><span>
