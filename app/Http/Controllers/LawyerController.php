@@ -40,12 +40,12 @@ class LawyerController extends Controller
             }
         }
         $bookings = Booking::where('lawyer_id',auth('lawyer')->user()->id)->get();
-        return view('lawyers.bokkings.index',compact('bookings'));
+        return view('lawyers.bookings.index',compact('bookings'));
     }
 
     public function acceptBooking(Request $r) {
         $booking  = Booking::whereId($r->id)->first();
-        return view('lawyers.bokkings.accept',compact('booking'));
+        return view('lawyers.bookings.accept',compact('booking'));
     }
 
     public function rejectBooking(Request $r) {
@@ -68,7 +68,7 @@ class LawyerController extends Controller
         broadcast(new Booking_Event($data))->toOthers();
 
         $bookings = Booking::where('lawyer_id',auth('lawyer')->user()->id)->get();
-        return view('lawyers.bokkings.index',compact('bookings'));
+        return view('lawyers.bookings.index',compact('bookings'));
     }
 
 }
