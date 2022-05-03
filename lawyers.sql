@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `password`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'الأدمن', 'admin@gmail.com', '$2y$10$WLSAB2reolOlDCSKBA1RaumByy6tTCfHXXSphMKaySPUccn37RrYS', NULL, '2022-04-14 15:18:12', '2022-04-14 15:18:12');
+(1, 'الأدمن', 'admin@lawyers.com', '$2y$10$WLSAB2reolOlDCSKBA1RaumByy6tTCfHXXSphMKaySPUccn37RrYS', NULL, '2022-04-14 15:18:12', '2022-04-14 15:18:12');
 
 -- --------------------------------------------------------
 
