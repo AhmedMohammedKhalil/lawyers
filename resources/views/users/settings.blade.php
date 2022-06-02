@@ -1,4 +1,4 @@
-@extends('lawyers.layout')
+@extends('users.layout')
 @push('title')
 <div class="text-center text-white py-7">
     <h1 class="">الإعدادات</h1>

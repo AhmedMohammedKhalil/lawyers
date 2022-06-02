@@ -47,6 +47,7 @@ class Replies extends Component
 
     public function delReply($id) {
         Reply::destroy($id);
+
         $this->emitTo(Consulations::class,'refresh_me');
         $this->emitSelf('refresh_me');
     }
